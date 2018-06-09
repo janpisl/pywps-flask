@@ -1,11 +1,12 @@
 import json
 from pywps import Process, LiteralInput, ComplexOutput, Format
+from pywps.inout.formats import FORMATS
 
 class TestJson(Process):
     def __init__(self):
         inputs = [LiteralInput('name', 'Input name', data_type='string')]
         outputs = [ComplexOutput('out', 'Referenced Output',
-                   supported_formats=[Format('application/geojson')])]
+                   supported_formats=[FORMATS.GEOJSON])]
 
         super(TestJson, self).__init__(
             self._handler,

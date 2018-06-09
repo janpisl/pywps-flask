@@ -11,14 +11,13 @@ __author__ = 'Brauni'
 class Buffer(Process):
     def __init__(self):
         inputs = [ComplexInput('poly_in', 'Input vector file',
-                  supported_formats=[Format('application/gml+xml')],
+                  supported_formats=[FORMATS.GML],
                   mode=MODE.STRICT),
                   LiteralInput('buffer', 'Buffer size', data_type='float',
                   allowed_values=(0, 1, 10, (10, 10, 100), (100, 100, 1000)))]
         outputs = [ComplexOutput('buff_out', 'Buffered file',
-                                 supported_formats=[
-                                            Format('application/gml+xml')
-                                            ]
+                  supported_formats=[FORMATS.GML],
+
                                  )]
 
         super(Buffer, self).__init__(
